@@ -3,17 +3,18 @@
 #include <stdarg.h>
 /*
  * _printf - function that sends output to stdio
- * 
- *
+ * @format: format specificier
+ * Description: prnts data on stdio
+ * Return: count
  */
 int _printf(const char *format, ...)
 {
-	int count, a, b, c;
+	int a, b, c;
+	int count = 0;
 	char *s;
-	count = 0;
-	va_list arg;
-	va_start(arg, format);
+	va_list args;
 
+	va_start(args, format);
 	for (a = 0; format[a] != '\0'; a++)
 	{
 		if (format[a] != '%')
@@ -22,20 +23,20 @@ int _printf(const char *format, ...)
 		}
 		else if (format[a + 1] == 'c')
 		{
-			c = va_arg(arg, int);
+			c = va_arg(args, int);
 			_putchar(c);
 			count++;
 			a++;
 		}
 		else if (format[a + 1] == 's')
 		{
-			s = va_arg(arg, char *);
+			s = va_arg(args, char *);
 			a++;
 			b = 0;
 
 			while (s[b] != '\0')
 			{
-				_putchar([b]);
+				_putchar(s[b]);
 				b++;
 				count++;
 			}

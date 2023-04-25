@@ -8,7 +8,7 @@
  * _printf prototype
  */
 
-int _Putchar(char c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 
 #endif

@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-
+#include <stdarg.h>
 /*
  * _printf - function that sends output to stdio
  * 
@@ -17,11 +17,13 @@ int _printf(const char *format, ...)
 	for (a = 0; format[a] != '\0'; a++)
 	{
 		if (format[a] != '%')
-			putchar(format[a]);
+		{
+			_putchar(format[a]);
+		}
 		else if (format[a + 1] == 'c')
 		{
 			c = va_arg(arg, int);
-			putchar(c);
+			_putchar(c);
 			count++;
 			a++;
 		}
@@ -33,14 +35,14 @@ int _printf(const char *format, ...)
 
 			while (s[b] != '\0')
 			{
-				putchar([b]);
+				_putchar([b]);
 				b++;
 				count++;
 			}
 		}
 		else if (format[a + 1] == '%')
 		{
-			putchar('%');
+			_putchar('%');
 			count++;
 			a++;
 		}

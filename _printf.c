@@ -18,11 +18,11 @@ int _printf(const char *format, ...)
 	for (a = 0; format[a] != '\0'; a++)
 	{
 		if (format[a] != '%')
-			_putchar(format[a]);
-		else if (format[a + 1] == 'c');
+			putchar(format[a]);
+		else if (format[a + 1] == 'c')
 		{
 			c = va_arg(var_name, int);
-			_putchar(c);
+			putchar(c);
 			a++;
 		}
 		else if (format[a + 1] == 's')
@@ -33,14 +33,14 @@ int _printf(const char *format, ...)
 
 			while (s[b] != '\0')
 			{
-				_putchar([b]);
+				putchar(b);
 				b++;
 				count++;
 			}
 		}
 		else if (format[a + 1] == '%')
 		{
-			_putchar('%');
+			putchar('%');
 			a++;
 		}
 		count++;

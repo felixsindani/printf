@@ -2,6 +2,7 @@
 /*
 * _printf - function that prints on stdio
 * @format: format
+* description: sends data to stdio
 * Return: count
 */
 int _printf(const char *format, ...)

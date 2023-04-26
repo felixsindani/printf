@@ -6,6 +6,7 @@
 */
 int _printf(const char *format, ...)
 {
+	int j;
 	unsigned int a, b, c;
 	int count = 0;
 	char *s;
@@ -41,6 +42,24 @@ int _printf(const char *format, ...)
 			count++;
 			a++;
 		}
+		else if (format[a + 1] == 'd' || format[a + 1] == 'i')
+		{
+			int d = va_arg(var_name, int);
+			s = _itoa(d);
+			for (j = 0; s[j]; j++)
+			{
+				_putchar(s[j]);
+				count++;
+			}
+		}
+		else
+		{
+			_putchar('%');
+			_putchar(*format);
+			count += 2;
+		}
+		format++;
+		va_end(var_name);
 	}
 	return (count);
 }

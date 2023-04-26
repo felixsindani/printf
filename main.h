@@ -2,6 +2,8 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
  * _putchar prototype
@@ -10,5 +12,5 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-
+char *_itoa(int n);
 #endif
